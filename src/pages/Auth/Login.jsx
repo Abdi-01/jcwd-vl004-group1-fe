@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { API_URL } from "../../constant/api";
 
 const Login = () => {
   const [errMessage, setErrMessage] = useState("");
@@ -23,7 +24,7 @@ const Login = () => {
     }),
     onSubmit: (values) => {
       console.log(values);
-      Axios.post(`http://localhost:9990/users/login`, {
+      Axios.post(`${API_URL}/users/login`, {
         email: values.email,
         password: values.password,
       })

@@ -3,6 +3,7 @@ import Axios from "axios"
 import * as Yup from "yup"
 import { useFormik } from 'formik'
 import { Link } from "react-router-dom";
+import { API_URL } from '../../constant/api';
 
 const Register = () => {
     const [successMessage, setSuccessMessage] = useState("");
@@ -27,7 +28,7 @@ const Register = () => {
         }),
         onSubmit: (values) => {
             console.log(values)
-            Axios.post(`http://localhost:9990/users/register`, {
+            Axios.post(`${API_URL}/users/register`, {
                 full_name: values.full_name,
                 username: values.username,
                 email: values.email,

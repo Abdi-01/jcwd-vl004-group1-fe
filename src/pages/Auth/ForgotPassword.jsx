@@ -4,6 +4,7 @@ import * as Yup from "yup"
 import { useFormik } from 'formik'
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
+import { API_URL } from '../../constant/api';
 
 const ForgotPassword = () => {
     const [successMessage, setSuccessMessage] = useState("");
@@ -18,7 +19,7 @@ const ForgotPassword = () => {
         }),
         onSubmit: (values) => {
             console.log(values)
-            Axios.post(`http://localhost:9990/users/forgotpassword`, {
+            Axios.post(`${API_URL}/users/forgotpassword`, {
                 email: values.email,
             })
                 .then(res => {

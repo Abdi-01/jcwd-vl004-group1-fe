@@ -60,7 +60,7 @@ function App() {
 
   const userKeepLogin = () => {
     Axios.post(
-      `http://localhost:9990/users/auth`,
+      `${API_URL}/users/auth`,
       {},
       {
         headers: {
@@ -85,7 +85,7 @@ function App() {
 
   const adminKeepLogin = () => {
     Axios.post(
-      `http://localhost:9990/admins/auth`,
+      `${API_URL}/admins/auth`,
       {},
       {
         headers: {

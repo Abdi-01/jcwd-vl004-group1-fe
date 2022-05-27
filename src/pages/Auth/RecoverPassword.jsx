@@ -4,6 +4,7 @@ import * as Yup from "yup"
 import { useFormik } from 'formik'
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux'
+import { API_URL } from '../../constant/api';
 
 const RecoverPassword = () => {
     const [successMessage, setSuccessMessage] = useState("");
@@ -21,7 +22,7 @@ const RecoverPassword = () => {
             confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], "Password must match").required("Password Confirmation is Required"),
         }),
         onSubmit: (values) => {
-            Axios.patch(`http://localhost:9990/users/recoverpassword`, {
+            Axios.patch(`${API_URL}/users/recoverpassword`, {
                 password: values.password
             }, {
                 headers: {

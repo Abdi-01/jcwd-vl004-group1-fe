@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import Axios from "axios"
 import Header from "../../components/HeaderUser"
+import { API_URL } from '../../constant/api';
 
 const Authentication = () => {
     const { token } = useParams();
@@ -9,7 +10,7 @@ const Authentication = () => {
     const [message, setMessage] = useState("You are not verified yet!")
 
     const sendVerification = () => {
-        Axios.patch(`http://localhost:9990/users/verification`, {}, {
+        Axios.patch(`${API_URL}/users/verification`, {}, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
